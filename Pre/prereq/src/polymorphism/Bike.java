@@ -12,6 +12,10 @@ public class Bike extends Vehicle {
         System.out.println("Starting the Bike.....");
     }
 
+    public void start(String greet){
+        System.out.println("Starting the Bike....."+greet);
+    }
+
     public boolean isHasCarrier() {
         return hasCarrier;
     }
