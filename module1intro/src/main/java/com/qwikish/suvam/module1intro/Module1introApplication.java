@@ -1,6 +1,9 @@
 package com.qwikish.suvam.module1intro;
 
+import com.qwikish.suvam.module1intro.impl.EmailNotificationService;
+import com.qwikish.suvam.module1intro.impl.SmsNotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,12 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Module1introApplication implements CommandLineRunner {
 
-//For these both the obejct is same
-	@Autowired
-	PaymentService paymentService;
+	private final NotificationService notificationService;
 
-	@Autowired
-	PaymentService paymentService1;
+	public Module1introApplication(NotificationService notificationService){
+		this.notificationService = notificationService;  // Constructor dependecy injection
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Module1introApplication.class, args);
@@ -21,10 +23,13 @@ public class Module1introApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println(paymentService.hashCode());
-		System.out.println(paymentService1.hashCode());
+//		THis is tightly coupled (hard to change email to sms dinamincally)
 
-		paymentService.pay();
-		paymentService1.pay();
+//		NotificationService notificationService = new SmsNotificationService();
+//		notificationService.send("Hello");
+
+		notificationService.send("Hello");
+
+
 	}
 }
