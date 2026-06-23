@@ -17,5 +17,4 @@ public class RoomDto {
     private  String[] amenities;
     private Integer capacity;
     private Integer totalCount;
-    private Boolean active;
 }

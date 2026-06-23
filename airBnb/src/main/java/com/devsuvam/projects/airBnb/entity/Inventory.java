@@ -2,8 +2,7 @@ package com.devsuvam.projects.airBnb.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +15,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(uniqueConstraints = @UniqueConstraint(name = "unique_hotel_room_date", columnNames = {"hotel_id", "room_id", "date"}))
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +40,7 @@ public class Inventory {
     @Column(nullable = false)
     private Integer totalCount;
 
-    @Column(nullable = false,precision = 2,scale = 2)
+    @Column(nullable = false,precision = 5,scale = 2)
     private BigDecimal surgeFactor;
 
     @Column(nullable = false, precision = 10,scale = 2)

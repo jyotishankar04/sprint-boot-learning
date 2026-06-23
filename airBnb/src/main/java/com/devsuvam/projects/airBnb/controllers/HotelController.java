@@ -1,7 +1,6 @@
-package com.devsuvam.projects.airBnb;
+package com.devsuvam.projects.airBnb.controllers;
 
 import com.devsuvam.projects.airBnb.dto.HotelDto;
-import com.devsuvam.projects.airBnb.entity.Hotel;
 import com.devsuvam.projects.airBnb.services.HotelService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
